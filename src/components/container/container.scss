@@ -1,0 +1,54 @@
+@import "../palette";
+@import "../font";
+
+.container {
+
+	font-family: mainFont, sans-serif;
+	background-color: $COLOR_BACK;
+	border-radius: 16px;
+	overflow: hidden;
+	color: $COLOR_LIGHT;
+	transition: all 0.8s;
+	position: fixed;
+	height: 60%;
+
+}
+
+.container.container-left {
+
+	width: 32%;
+	padding: 32px;
+	float: right;
+	height: 60%;
+	margin-top: 10%;
+	margin-left: 60%;
+	text-align: center;
+	opacity: 0%;
+	transform: translateX(1000px);
+
+}
+
+.container.visible {
+	opacity: 100%;
+	transform: translateX(0);
+}
+
+.container h1 {
+	font-family: mainFont, sans-serif;
+	font-size: 3em;
+	margin-top: 0;
+	filter: drop-shadow(0px 0px 3px rgba($COLOR_DARK,0.9));
+	color: $COLOR_NORMAL;
+	background: -webkit-linear-gradient(left, white, $COLOR_LIGHT, $COLOR_NORMAL, $COLOR_RED, red);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.container hr {
+	color: $COLOR_DARK;
+}
+
+.container p {
+	text-align: left;
+	font-size: 1.6em;
+}
