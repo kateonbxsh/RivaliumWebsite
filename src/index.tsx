@@ -12,7 +12,13 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />}/>  
+        <Route path="/" element={<Main />}>
+          <Route index path="/home" element={<></>}/>
+          <Route path="/rivals" element={<></>}/> 
+          <Route path="/download" element={<></>}/> 
+          <Route path="/gameplay" element={<></>}/>
+          <Route path="/game" element={<></>}/>
+        </Route> 
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

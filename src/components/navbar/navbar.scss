@@ -3,15 +3,17 @@
 
 .navbar {
 
-    background-color: $COLOR_BACK;
+    background-color: rgba($COLOR_BACK, 0.7);
     color: $COLOR_WHITE;
     padding: 12px;
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.46));
-    display: inline-flex;
-    z-index: 1;
-    width: 100%;
+    display: flex;
+    z-index: 2;
     position: fixed;
-    border-radius: 0 16px;
+    overflow: hidden;
+    margin: 6px;
+    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+
 }
 
 .navbar-logo {
@@ -29,7 +31,9 @@
 
 .navbar-button-list {
     width: 100%;
-    padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
 
 .navbar-button {
@@ -39,8 +43,10 @@
     font-size: 1.4em;
     text-decoration: none;
     color: $COLOR_NORMAL;
-    background: -webkit-linear-gradient(left, $COLOR_LIGHT, $COLOR_NORMAL);
+    background: rgb($COLOR_LIGHT, 1);
+    text-transform: uppercase;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     vertical-align: center;
     margin: 0 5px;

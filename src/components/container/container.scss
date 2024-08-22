@@ -39,8 +39,9 @@
 	margin-top: 0;
 	filter: drop-shadow(0px 0px 3px rgba($COLOR_DARK,0.9));
 	color: $COLOR_NORMAL;
-	background: -webkit-linear-gradient(left, white, $COLOR_LIGHT, $COLOR_NORMAL, $COLOR_RED, red);
+	background: -webkit-linear-gradient(left, white, $COLOR_LIGHT, $COLOR_NORMAL, $COLOR_SPECIAL, red);
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 

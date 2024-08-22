@@ -6,12 +6,7 @@
   padding: 14px 48px;
   text-decoration: none;
   color: white;
-  border: 5px solid;
-  background-image: url("../../../public/img/main-button-contentbox.png");
-  background-repeat: no-repeat;
-  background-size: 102% 102%;
-  background-clip: border-box;
-  border-image: url("../../../public/img/main-button.png") 5 5;
+  background-image: url("../../../public/img/main-button.png");
   transition: all 0.35s;
 }
 
@@ -20,5 +15,5 @@
 }
 
 .main-button:hover {
-  filter: drop-shadow(0 0 15px rgb($COLOR_RED, 1)) brightness(1.2);
+  filter: drop-shadow(0 0 3px rgb($COLOR_SPECIAL, 1)) brightness(1.2);
 }

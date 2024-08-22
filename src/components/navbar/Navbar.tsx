@@ -1,21 +1,38 @@
 import './navbar.scss'
 import NavbarButton from "./NavbarButton";
 import {MainPage} from "../EMainPage";
+import { useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 
-export default function Navbar({ setPageState }) {
+export default function Navbar() {
 
-    return (<div className="navbar">
-        <a href="#" onClick={()=>setPageState(MainPage.MAIN)}>
+    const [isOpen, setIsOpen] = useState(false);
+
+    const slideDown = useSpring({
+        width: isOpen ? '800px' : '50px',
+        maxHeight: '50px',
+        overflow: 'hidden',
+        config: { tension: 210, friction: 30 },
+    });
+
+    const handleLogoClick = () => {
+        setIsOpen(!isOpen);
+    };
+
+
+    return (<animated.div className="navbar" style={slideDown}>
+        <a href="#" onClick={handleLogoClick}>
             <img className="navbar-logo" src="/img/icon-inverted.png" alt="Rivalium Icon"/>
         </a>
+        {isOpen && (
         <div className="navbar-button-list">
-            <NavbarButton text="Download" onClick={()=>setPageState(MainPage.DOWNLOAD)} side="right"/>
-            <NavbarButton text="Rivals" onClick={()=>setPageState(MainPage.RIVALS)} side="right" />
-            <NavbarButton text="Gameplay" onClick={()=>setPageState(MainPage.GAMEPLAY)} side="right" />
-            <NavbarButton text="About" onClick={()=>setPageState(MainPage.ABOUT)} side="left" />
-            <NavbarButton text="Home" onClick={()=>setPageState(MainPage.MAIN)} side="left" />
+            <NavbarButton text="Home" href="/"/>
+            <NavbarButton text="Play" href="/download"/>
+            <NavbarButton text="Rivals" href="/rivals"/>
+            <NavbarButton text="Gameplay" href="/gameplay"/>
+            <NavbarButton text="About"  href="/game"/>
         </div>
-
-    </div>);
+      )}
+    </animated.div>);
 
 }
