@@ -1,0 +1,36 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: SSH Deployment
+        uses: appleboy/ssh-action@v0.1.4
+        with:
+          host: rivalium.online
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 2424
+          script: |
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+            export PM2_HOME="$HOME/.pm2"
+            export PATH="$PM2_HOME/bin:$PATH"
+            
+            nvm use lts/iron
+            
+            cd ~/website/
+            
+            git pull origin master
+            git status
+            
+            pnpm install
+            
+            pnpm run build
