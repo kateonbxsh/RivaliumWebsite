@@ -28,6 +28,8 @@ jobs:
             
             cd ~/website/
             
+            git stash push --include-untracked --quiet 
+            git stash drop
             git pull origin master
             git status
             
