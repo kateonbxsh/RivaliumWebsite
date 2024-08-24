@@ -13,10 +13,10 @@ jobs:
       - name: SSH Deployment
         uses: appleboy/ssh-action@v0.1.4
         with:
-          host: rivalium.online
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 2424
+          port: ${{ secrets.PORT }}
           script: |
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
