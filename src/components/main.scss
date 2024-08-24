@@ -83,6 +83,7 @@ button, input[type="submit"], input[type="reset"] {
   color: $COLOR_WHITE;
   width: 40%;
   margin-top: 20%;
+  position: relative;
   z-index: 2;
   filter: drop-shadow(0px 0px 18px rgba($COLOR_DARK,0.5));
   transition: margin $TRANSITION_TIME ease, width $TRANSITION_TIME ease;
@@ -118,4 +119,8 @@ $__BGMOVEMENT: 12px;
     background-position-x: calc(100% + 2 * $__BGMOVEMENT);
     background-position-y: 50%;
   }
+}
+
+.logo-r {
+  clip-path: rect(20px 30px at 50px 30px);
 }

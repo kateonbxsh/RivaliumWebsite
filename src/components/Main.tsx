@@ -65,7 +65,7 @@ export default function Main() {
             onOpenEasing={easings.easeInOutCirc}
             /> 
             <div className="main-container">
-                <img src="/img/logo.png" alt="logo" className="logo" />
+                <img src="/img/logo.png" alt="logo" className="logo logo-r" />
                 <h3 className="logo-desc">
                     The realm of rivals
                 </h3>
