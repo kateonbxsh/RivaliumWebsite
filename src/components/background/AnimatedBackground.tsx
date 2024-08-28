@@ -7,13 +7,13 @@ export interface AnimatedBackgroundProps {
     onOpen?: [object, object],
     onOpenEasing?: (t: number) => number,
     duration?: number,
-    background: string
+    className: string
 }
 
 export default function AnimatedBackground({
     namespace,
     animation = {},
-    background,
+    className,
     onOpen = [{}, {}],
     duration = 500,
     onOpenEasing = easings.linear
@@ -48,14 +48,13 @@ export default function AnimatedBackground({
                 overflow: 'hidden' // Ensure no overflow
             }}
         >
-            <animated.div
+            <animated.div className={className}
                 style={{
                     ...animation,
                     position: 'absolute',
                     zIndex: 0,
                     width: '100%',
                     height: '100%',
-                    background,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

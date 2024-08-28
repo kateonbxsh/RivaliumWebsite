@@ -5,9 +5,9 @@ export default function NavbarButton({text, href}) {
     const navigate = useNavigate();
 
     return (<>
-        <a onClick={() => navigate(href)} className="navbar-button">
+        <button onClick={() => navigate(href)} className="navbar-button">
             {text}
-        </a>
+        </button>
     </>)
 
 }

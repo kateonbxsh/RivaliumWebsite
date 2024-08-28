@@ -1,8 +1,8 @@
-import './navbar.scss'
-import NavbarButton from "./NavbarButton";
-import {MainPage} from "../EMainPage";
+import '../../style/pages/main/navbar.scss'
+import NavbarButton from "../../components/navbar/NavbarButton";
 import { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
+const Icon = require("../../assets/images/logo/icon/icon.webp");
 
 export default function Navbar() {
 
@@ -22,7 +22,7 @@ export default function Navbar() {
 
     return (<animated.div className="navbar" style={slideDown}>
         <a href="#" onClick={handleLogoClick}>
-            <img className="navbar-logo" src="/img/icon-inverted.png" alt="Rivalium Icon"/>
+            <img className="navbar-logo" src={Icon} alt="Rivalium Icon"/>
         </a>
         {isOpen && (
         <div className="navbar-button-list">
