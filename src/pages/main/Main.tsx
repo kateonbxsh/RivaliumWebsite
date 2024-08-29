@@ -9,7 +9,7 @@ import ParticlesBackground from "./ParticlesBackground";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import HomeLayout from "./HomeLayout";
 import { FC, useMemo } from "react";
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 
 const pageVariants = {
     initial: {
@@ -26,7 +26,7 @@ const pageVariants = {
 const pageTransition = {
     type: 'tween',
     ease: 'linear',
-    duration: 1.2
+    duration: 1.2,
 }; 
 
 export default function Main() {

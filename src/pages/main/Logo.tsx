@@ -10,8 +10,10 @@ const L = require('../../assets/images/logo/letters/l.webp');
 const SWORD = require('../../assets/images/logo/letters/sword.webp');
 const U = require('../../assets/images/logo/letters/u.webp');
 const M = require('../../assets/images/logo/letters/m.webp');
+const Description = require("../../assets/images/logo/description.webp");
 
 const images = [R, I, V, A, L, SWORD, U, M];
+
 
 export default function Logo() {
 
@@ -42,9 +44,11 @@ export default function Logo() {
                     key={i}
                     src={image}
                     style={springProps}
+                    className="letter"
                     alt={`logo-letter-${i}`}
                 />
             ))}
+            <img className="logo-desc" src={Description} alt="The realm of rivals"/>
         </div>
     );
 }

@@ -8,9 +8,6 @@ export default function HomeLayout() {
     
     return (<>
         <Logo/>
-        <h3 className="logo-desc">
-            The realm of rivals
-        </h3>
         <div>
             <Button 
                 type="main"
