@@ -18,10 +18,17 @@
   font-size: 1.6em;
   padding: 14px 38px;
   text-decoration: none;
+  text-transform: uppercase;
   @include button-style();
   transition: all 0.35s;
   color: rgba(white, 0.8);
   margin: 6px;
+}
+
+.button.s {
+  padding: 6px 24px;
+  font-size: 1.3em;
+  margin: 4px;
 }
 
 .button.main {

@@ -1,27 +1,61 @@
 @import 'src/style/palette';
 @import 'src/style/font';
 
+@keyframes navbar-opening {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar-container {
+    margin: 6px;
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
+    width: 100%;
+}
+
 .navbar {
 
+    position: relative;
     background-color: rgba($COLOR_BACK, 0.7);
     color: $COLOR_WHITE;
     padding: 12px;
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.46));
     display: flex;
-    z-index: 2;
-    position: fixed;
-    overflow: hidden;
-    margin: 6px;
-    clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
     max-height: 50px;
+    height: 50px;
     overflow: hidden;
+    transition: width 0.5s ease-in-out 0s;
+
+}
+
+.navbar.open {
+
+    width: calc(100vw - 48px);
+
+}
+
+.navbar.closed {
+
+    width: 50px;
 
 }
 
 .navbar-logo {
 
     width: 45px;
-    height: fit-content;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 12px;
     filter: drop-shadow(0px 0px 18px rgba(0,0,0,0.46));
     transition: all 0.35s;
 
@@ -31,11 +65,21 @@
     filter: drop-shadow(0 0 15px rgb($COLOR_NORMAL, 0.3)) brightness(1.2);
 }
 
+.navbar-portal {
+    position: absolute;
+    right: 0;
+    margin-right: 28px;
+    display: flex;
+    justify-self: flex-end;
+    animation: navbar-opening 0.5s ease-in-out;
+}
+
 .navbar-button-list {
-    width: 100%;
+    width: 40%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-evenly;
+    animation: navbar-opening 0.5s ease-in-out;
 }
 
 .navbar-button {
