@@ -1,19 +1,33 @@
 @import '../palette';
 
-.main-button {
+@mixin button-style($BUTTON_COLOR: #1f2170, $BUTTON_COLOR_DARK: #1b1b60) {
+  background: linear-gradient(
+    180deg,
+    $BUTTON_COLOR 0%,
+    $BUTTON_COLOR 50%,
+    $BUTTON_COLOR_DARK 50%,
+    $BUTTON_COLOR_DARK 100%
+  );
+  &:hover {
+    filter: drop-shadow(0 0 3px mix(white, $BUTTON_COLOR, 40%)) brightness(1.2);
+  }
+}
+
+.button {
   font-family: mainFont, sans-serif;
   font-size: 1.6em;
-  padding: 14px 48px;
+  padding: 14px 38px;
   text-decoration: none;
-  color: white;
-  background-image: url("../../assets/images/button/main-button.webp");
+  @include button-style();
   transition: all 0.35s;
+  color: rgba(white, 0.8);
+  margin: 6px;
 }
 
-.main-button.removed-button {
-  display: none;
+.button.main {
+  @include button-style(#c15c0d, #b2540c);
 }
 
-.main-button:hover {
-  filter: drop-shadow(0 0 3px rgb($COLOR_SPECIAL, 1)) brightness(1.2);
+.button.secondary {
+  @include button-style(#631f70, #541b60)
 }

@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "./Logo";
+import Button from "../../components/Button";
 
 export default function HomeLayout() {
 
@@ -10,9 +11,18 @@ export default function HomeLayout() {
         <h3 className="logo-desc">
             The realm of rivals
         </h3>
-        <button className="main-button logo-play-button" onClick={()=>navigate("/download")}>
-            PLAY NOW
-        </button>
+        <div>
+            <Button 
+                type="main"
+                content="PLAY NOW"
+                onClick={() => navigate("/download")}
+            />
+            <Button 
+                type="secondary"
+                content="ABOUT THE GAME"
+                onClick={() => navigate("/game")}
+            />
+        </div>
     </>)
 
 }
