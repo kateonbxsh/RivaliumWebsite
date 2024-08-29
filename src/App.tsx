@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import Loading from './pages/Loading'
 import './style/global.scss'
 import HomeLayout from "./pages/main/HomeLayout";
+import { TransitionContextProvider } from "./contexts/TransitionContext";
 
 export default function App() {
 
@@ -28,17 +29,19 @@ export default function App() {
 
     return (
         <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Main />}>
-                    <Route index element={<HomeLayout/>}/>
-                    <Route path="/home" element={<HomeLayout/>}/>
-                    <Route path="/rivals" element={<>Miaw</>}/> 
-                    <Route path="/download" element={<></>}/> 
-                    <Route path="/gameplay" element={<></>}/>
-                    <Route path="/game" element={<></>}/>
-                </Route>
-                <Route path="/haha" element={"Hello"}/>
-            </Routes>
+            <TransitionContextProvider>
+                <Routes>
+                    <Route path="/" element={<Main />}>
+                        <Route index element={<HomeLayout/>}/>
+                        <Route path="/home" element={<HomeLayout/>}/>
+                        <Route path="/rivals" element={<>Miaw</>}/> 
+                        <Route path="/download" element={<></>}/> 
+                        <Route path="/gameplay" element={<></>}/>
+                        <Route path="/game" element={<></>}/>
+                    </Route>
+                    <Route path="/haha" element={"Hello"}/>
+                </Routes>
+            </TransitionContextProvider>
         </BrowserRouter>
     );
 

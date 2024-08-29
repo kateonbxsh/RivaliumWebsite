@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ParticlesLoadedProvider>
-      <App/>
+        <App/>
     </ParticlesLoadedProvider>
   </React.StrictMode>
 );

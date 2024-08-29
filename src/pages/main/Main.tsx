@@ -9,29 +9,12 @@ import ParticlesBackground from "./ParticlesBackground";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import HomeLayout from "./HomeLayout";
 import { FC, useMemo } from "react";
-import { delay, motion } from 'framer-motion';
-
-const pageVariants = {
-    initial: {
-        opacity: 0
-    },
-    in: {
-        opacity: 1
-    },
-    out: {
-        opacity: 0
-    }
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'linear',
-    duration: 1.2,
-}; 
+import { useInTransition, useRouteTransition } from "../../contexts/TransitionContext";
 
 export default function Main() {
 
     const location = useLocation();
+    const inTransition = useInTransition();
 
     const backgroundAnim = useSpring({
         loop: true,
@@ -85,17 +68,9 @@ export default function Main() {
             />
             { particles }
             <div className="main-container">
-                <motion.div
-                    key={location.pathname}
-                    initial="initial"
-                    animate="in"
-                    variants={pageVariants}
-                    transition={pageTransition}
-                >
-                    <div className="transition-container">
-                        <Outlet context={location}/>
-                    </div>
-                </motion.div>
+                <div className={`transition-container ${inTransition ? "in-transition" : ""}`}>
+                    <Outlet context={location}/>
+                </div>
             </div>
         </div>
     </>);

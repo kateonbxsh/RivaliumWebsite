@@ -42,6 +42,24 @@
   }
 }
 
+@keyframes letter-animation {
+
+  from  {
+    opacity: 0;
+    margin-left: 20%;
+    transform: scale(0.2);
+    filter: blur(80px);
+  }
+
+  to {
+    opacity: 1;
+    margin-left: 0;
+    transform: scale(1);
+    filter: blur(0px);
+  }
+
+}
+
 .logo-desc {
   position: absolute;
   opacity: 0;
@@ -54,7 +72,7 @@
   text-transform: uppercase;
   left: 18%;
   bottom: 5%;
-  animation: desc-animation 0.8s ease-in-out 2.2s forwards;
+  animation: desc-animation 2s ease-in-out 2s forwards;
 }
 
 .main-container .logo {
@@ -71,6 +89,7 @@
 
 .main-container .logo .letter {
   height: 100%;
+  animation: letter-animation 3s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;  
 }
 
 .transition-container {
