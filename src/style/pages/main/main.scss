@@ -72,7 +72,7 @@
   text-transform: uppercase;
   left: 18%;
   bottom: 5%;
-  animation: desc-animation 2s ease-in-out 2s forwards;
+  animation: desc-animation 2s ease-in-out 1s forwards;
 }
 
 .main-container .logo {
@@ -92,6 +92,26 @@
   animation: letter-animation 3s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;  
 }
 
+@keyframes transition-container-out {
+  from {
+    opacity: 0;
+    filter: brightness(2)
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1)
+  }
+}
+
+@keyframes transition-container-in {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .transition-container {
   top: 0;
   left: 0;
@@ -102,6 +122,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  animation: transition-container-out 0.2s ease-in-out 0s forwards !important;
+}
+
+.transition-container.in-transition {
+
+  animation: transition-container-in 0.2s ease-in-out 0s forwards !important;
+
 }
 
 .main-splash {

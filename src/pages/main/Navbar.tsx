@@ -8,19 +8,11 @@ export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const slideDown = useSpring({
-        width: isOpen ? '800px' : '50px',
-        maxHeight: '50px',
-        overflow: 'hidden',
-        config: { tension: 210, friction: 30 },
-    });
-
     const handleLogoClick = () => {
         setIsOpen(!isOpen);
     };
 
-
-    return (<animated.div className="navbar" style={slideDown}>
+    return (<animated.div className={"navbar " + (isOpen ? "open" : "")}>
         <a href="#" onClick={handleLogoClick}>
             <img className="navbar-logo" src={Icon} alt="Rivalium Icon"/>
         </a>

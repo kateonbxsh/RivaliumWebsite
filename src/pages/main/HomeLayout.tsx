@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import Button from "../../components/Button";
+import { useRouteTransition } from "../../contexts/TransitionContext";
 
 export default function HomeLayout() {
 
-    const navigate = useNavigate();
+    const goTo = useRouteTransition();
     
     return (<>
         <Logo/>
@@ -12,12 +13,12 @@ export default function HomeLayout() {
             <Button 
                 type="main"
                 content="PLAY NOW"
-                onClick={() => navigate("/download")}
+                onClick={() => goTo("/download", 200)}
             />
             <Button 
                 type="secondary"
                 content="ABOUT THE GAME"
-                onClick={() => navigate("/game")}
+                onClick={() => goTo("/game", 200)}
             />
         </div>
     </>)

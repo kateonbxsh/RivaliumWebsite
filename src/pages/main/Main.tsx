@@ -9,12 +9,12 @@ import ParticlesBackground from "./ParticlesBackground";
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import HomeLayout from "./HomeLayout";
 import { FC, useMemo } from "react";
-import { useInTransition, useRouteTransition } from "../../contexts/TransitionContext";
+import TransitionContainer from "./TransitionContainer";
 
 export default function Main() {
 
     const location = useLocation();
-    const inTransition = useInTransition();
+    
 
     const backgroundAnim = useSpring({
         loop: true,
@@ -68,9 +68,7 @@ export default function Main() {
             />
             { particles }
             <div className="main-container">
-                <div className={`transition-container ${inTransition ? "in-transition" : ""}`}>
-                    <Outlet context={location}/>
-                </div>
+                <TransitionContainer/>
             </div>
         </div>
     </>);

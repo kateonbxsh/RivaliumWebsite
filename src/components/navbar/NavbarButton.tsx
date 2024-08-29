@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useRouteTransition } from "../../contexts/TransitionContext";
 
 export default function NavbarButton({text, href}) {
 
-    const navigate = useNavigate();
+    const goTo = useRouteTransition();
 
     return (<>
-        <button onClick={() => navigate(href)} className="navbar-button">
+        <button onClick={() => goTo(href, 200)} className="navbar-button">
             {text}
         </button>
     </>)
