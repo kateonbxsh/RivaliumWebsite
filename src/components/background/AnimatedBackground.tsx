@@ -43,9 +43,9 @@ export default function AnimatedBackground({
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: '100%',
-                height: '100%',
-                overflow: 'hidden' // Ensure no overflow
+                width: '100vw',
+                height: '100vh',
+                overflow: 'hidden'
             }}
         >
             <animated.div className={className}
@@ -53,8 +53,8 @@ export default function AnimatedBackground({
                     ...animation,
                     position: 'absolute',
                     zIndex: 0,
-                    width: '100%',
-                    height: '100%',
+                    width: '100vw',
+                    height: '100vh',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                 }}

@@ -2,7 +2,10 @@
 @import 'src/style/font';
 
 @keyframes navbar-opening {
-    from {
+    0% {
+        opacity: 0;
+    }
+    50% {
         opacity: 0;
     }
     to {
@@ -11,9 +14,8 @@
 }
 
 .navbar-container {
-    margin: 6px;
+    padding: 6px;
     position: fixed;
-    overflow: hidden;
     z-index: 2;
     width: 100%;
 }
@@ -25,29 +27,25 @@
     color: $COLOR_WHITE;
     padding: 12px;
     filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.46));
+    clip-path: polygon(0% 0%, 99% 0%, 100% 50%, 99% 100%, 0% 100%);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    clip-path: polygon(0% 0%, 98% 0%, 100% 50%, 98% 100%, 0% 100%);
-    max-height: 50px;
-    height: 50px;
+    height: calc(45px + 24px);
     overflow: hidden;
     transition: width 0.5s ease-in-out 0s;
 
 }
 
 .navbar.open {
-
-    width: calc(100vw - 48px);
-
+    width: 100%;
 }
 
 .navbar.closed {
-
-    width: 50px;
-
+    width: calc(45px + 24px)
 }
+
 
 .navbar-logo {
 
@@ -105,5 +103,62 @@
 
     cursor: pointer;
     filter: drop-shadow(0 0 15px rgb($COLOR_LIGHT, 1)) brightness(1.2);
+
+}
+
+@media screen and (max-aspect-ratio: 1) {
+
+    .navbar {
+
+        position: relative;
+        width: 100% !important;
+        background-color: rgba($COLOR_BACK, 0.7);
+        color: $COLOR_WHITE;
+        padding: 12px;
+        filter: drop-shadow(0px 5px 8px rgba(0,0,0,0.46));
+        clip-path: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        transition: height 0.5s ease-in-out 0s;
+    
+    }
+    
+    .navbar-logo {
+    
+        width: 8vw;
+        position: relative;
+        margin: 0px;
+        filter: drop-shadow(0px 0px 18px rgba(0,0,0,0.46));
+        transition: all 0.35s;
+    
+    }
+    
+    .navbar-portal {
+        position: relative;
+        display: flex;
+        margin-right: 0;
+        animation: navbar-opening 0.5s ease-in-out;
+    }
+    
+    .navbar-button {
+
+        font-family: mainFont, sans-serif;
+        font-size: 2vh;
+        text-decoration: none;
+        color: $COLOR_NORMAL;
+        background: rgb($COLOR_LIGHT, 1);
+        text-transform: uppercase;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        vertical-align: center;
+        margin: 0 1vw;
+        padding: 8px 1.5vh;
+        transition: all 0.35s;
+    
+    }
 
 }

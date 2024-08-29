@@ -38,3 +38,48 @@
 .button.secondary {
   @include button-style(#631f70, #541b60)
 }
+
+@media screen and (max-width: 1280px) {
+
+  .button {
+    font-family: mainFont, sans-serif;
+    font-size: 1.4em;
+    padding: 10px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include button-style();
+    transition: all 0.35s;
+    color: rgba(white, 0.8);
+    margin: 6px;
+  }
+  
+  .button.s {
+    padding: 6px 16px;
+    font-size: 1.1em;
+    margin: 4px;
+  }
+  
+}
+
+@media screen and (max-width: 400px) {
+
+  .button {
+    font-family: mainFont, sans-serif;
+    font-size: 1.1em;
+    padding: 10px 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include button-style();
+    transition: all 0.35s;
+    color: rgba(white, 0.8);
+    margin: 6px;
+  }
+  
+  .button.s {
+    padding: 6px 14px;
+    font-size: 0.8em;
+    margin: 4px;
+  }
+  
+  
+}

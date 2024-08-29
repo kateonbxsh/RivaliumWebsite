@@ -1,12 +1,18 @@
 @import url("./font.scss");
 
-html, body {
+html, body, #root {
     background-color: white;
     overflow: hidden;
     margin: 0;
     padding: 0;
     width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
     height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    display: flex;
+    position: relative;
 }
   
 button, input[type="submit"], input[type="reset"] {
@@ -20,5 +26,6 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 * {
+    box-sizing: border-box;
     font-family: mainFont;
 }

@@ -40,36 +40,34 @@ export default function Main() {
 
     return (<>
         <Navbar/>
-        <div className="body">
-            <AnimatedBackground className='secondary-splash'/>
-            <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
-            onOpen={[{
-                transform: 'scale(3)'
-            },{
-                transform: 'scale(1)'
-            }]}
-            onOpenEasing={easings.easeInOutCirc}
-            />
-            <AnimatedBackground animation={backgroundAnim} className='main-splash' namespace={["/", "/home"]}
-            onOpen={[{
-                transform: 'scale(3)'
-            },{
-                transform: 'scale(1)'
-            }]}
-            onOpenEasing={easings.easeInOutCirc}
-            />
-            <AnimatedBackground animation={backgroundAnim2} className='battle-splash' namespace="/download"
-            onOpen={[{
-                transform: 'translateX(0%) scale(1)'
-            },{
-                transform: 'translateX(-20%) scale(1.4)'
-            }]}
-            onOpenEasing={easings.easeInOutCirc}
-            />
-            { particles }
-            <div className="main-container">
-                <TransitionContainer/>
-            </div>
+        <AnimatedBackground className='secondary-splash'/>
+        <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
+        onOpen={[{
+            transform: 'scale(3)'
+        },{
+            transform: 'scale(1)'
+        }]}
+        onOpenEasing={easings.easeInOutCirc}
+        />
+        <AnimatedBackground animation={backgroundAnim} className='main-splash' namespace={["/", "/home"]}
+        onOpen={[{
+            transform: 'scale(3)'
+        },{
+            transform: 'scale(1)'
+        }]}
+        onOpenEasing={easings.easeInOutCirc}
+        />
+        <AnimatedBackground animation={backgroundAnim2} className='battle-splash' namespace="/download"
+        onOpen={[{
+            transform: 'translateX(0%) scale(1)'
+        },{
+            transform: 'translateX(-20%) scale(1.4)'
+        }]}
+        onOpenEasing={easings.easeInOutCirc}
+        />
+        { particles }
+        <div className="main-container">
+            <TransitionContainer/>
         </div>
     </>);
 

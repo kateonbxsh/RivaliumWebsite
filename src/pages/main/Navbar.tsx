@@ -8,7 +8,7 @@ const Icon = require("../../assets/images/logo/icon/icon.webp");
 export default function Navbar() {
 
     const navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     const handleLogoClick = () => {
         setIsOpen(!isOpen);
