@@ -1,4 +1,3 @@
-import { useLocation } from "react-router-dom";
 import { animated, easings, useSpring } from "react-spring";
 
 export interface AnimatedBackgroundProps {
@@ -19,7 +18,6 @@ export default function AnimatedBackground({
     onOpenEasing = easings.linear
 }: AnimatedBackgroundProps) {
 
-    const location = useLocation();
 
     // Check if the current pathname matches the namespace
     const inNamespace = (namespace instanceof Array) 

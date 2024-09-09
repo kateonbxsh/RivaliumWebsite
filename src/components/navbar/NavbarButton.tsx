@@ -1,6 +1,6 @@
 import { useRouteTransition } from "../../contexts/TransitionContext";
 
-export default function NavbarButton({text, href}) {
+export default function NavbarButton({text, href}: {text: string, href: string}) {
 
     const goTo = useRouteTransition();
 

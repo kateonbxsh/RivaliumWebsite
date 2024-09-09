@@ -1,20 +1,46 @@
-import Navbar from "./Navbar";
-import '../../style/pages/main/main.scss';
-import '../../style/components/buttons.scss'
-import { Outlet, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
-import { useSpring, easings } from "react-spring";
-import AnimatedBackground from "../../components/background/AnimatedBackground";
-import Logo from "./Logo";
-import ParticlesBackground from "./ParticlesBackground";
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import HomeLayout from "./HomeLayout";
-import { FC, useMemo } from "react";
-import TransitionContainer from "./TransitionContainer";
+import { TransitionContextProvider } from '@/contexts/TransitionContext';
+import { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
 
-export default function Main() {
+export default function MyApp({ Component, pageProps }: AppProps) {
 
-    const location = useLocation();
-    
+    const router = useRouter();
+
+    return <TransitionContextProvider router={router}>
+            <Component {...pageProps}/>
+    </TransitionContextProvider>;
+}
+
+/*import { AppProps } from 'next/app';
+import { useEffect, useMemo, useState } from 'react';
+import { initParticlesEngine } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
+import { TransitionContextProvider } from '../contexts/TransitionContext';
+import Loading from '../components/Loading';
+import '@/style/font.scss';
+import '@/style/global.scss';
+import '@/style/pages/main/navbar.scss'
+import { useRouter } from 'next/router';
+import { easings, useSpring } from 'react-spring';
+import ParticlesBackground from '@/components/ParticlesBackground';
+import Navbar from '@/components/navbar/Navbar';
+import AnimatedBackground from '@/components/background/AnimatedBackground';
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const [particlesLoaded, setParticlesLoaded] = useState(false);
+    const router = useRouter();
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadSlim(engine);
+    }).then(() => {
+      setParticlesLoaded(true);
+    });
+  }, []);
+
+  if (!particlesLoaded) {
+    return <Loading />;
+  }
 
     const backgroundAnim = useSpring({
         loop: true,
@@ -38,7 +64,7 @@ export default function Main() {
 
     const particles = useMemo(() => <ParticlesBackground/>, []);
 
-    return (<>
+    return (<TransitionContextProvider router={router}>
         <Navbar/>
         <AnimatedBackground className='secondary-splash'/>
         <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
@@ -66,9 +92,10 @@ export default function Main() {
         onOpenEasing={easings.easeInOutCirc}
         />
         { particles }
-        <div className="main-container">
-            <TransitionContainer/>
-        </div>
-    </>);
-
+        <Component {...pageProps} />
+    </TransitionContextProvider>
+  );
 }
+
+export default MyApp;
+*/

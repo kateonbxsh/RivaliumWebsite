@@ -1,23 +1,23 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { Location, NavigateFunction, useLocation, useNavigate } from 'react-router-dom';
+import { NextRouter } from 'next/router'
 
 interface TransitionContextType {
     inTransition: boolean;
     transitioningTo: string;
     setInTransition: React.Dispatch<React.SetStateAction<boolean>>;
     setTransitioningTo: React.Dispatch<React.SetStateAction<string>>;
-    location: Location;
-    navigate: NavigateFunction;
+    location: string;
+    navigate: (url: string) => void;
 }
 
 const TransitionContext = createContext<TransitionContextType | undefined>(undefined);
 
-const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+const TransitionContextProvider: React.FC<{ children: ReactNode, router: NextRouter }> = ({ children, router }) => {
 
     const [inTransition, setInTransition] = useState<boolean>(false);
     const [transitioningTo, setTransitioningTo] = useState<string>("");
-    const location = useLocation();
-    const navigate = useNavigate();
+    const location = router.asPath;
+    const navigate = (url: string) => router.replace(url);
 
     return (
         <TransitionContext.Provider value={{ inTransition, setInTransition, transitioningTo, setTransitioningTo, location, navigate}}>
@@ -34,7 +34,7 @@ const useRouteTransition = () => {
     return (target: string, delay: number) => {
         if (context.inTransition) return;
         
-        if (context.location.pathname == target) return;
+        if (context.location == target) return;
         context.setInTransition(true);
         context.setTransitioningTo(target);
         setTimeout(() => {

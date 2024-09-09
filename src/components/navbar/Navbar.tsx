@@ -1,13 +1,11 @@
-import '../../style/pages/main/navbar.scss'
-import NavbarButton from "../../components/navbar/NavbarButton";
+import NavbarButton from "@/components/navbar/NavbarButton";
 import { useState } from 'react';
-import Button from '../../components/Button';
-import { useNavigate } from 'react-router-dom';
-const Icon = require("../../assets/images/logo/icon/icon.webp");
+import Button from '@/components/Button';
+import Icon from "@/assets/images/logo/icon/icon.webp";
+import Image from 'next/image';
 
 export default function Navbar() {
 
-    const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(true);
 
     const handleLogoClick = () => {
@@ -18,7 +16,7 @@ export default function Navbar() {
         <div className="navbar-container">
             <div className={"navbar " + (isOpen ? "open" : "closed")}>
                 <a href="#" onClick={handleLogoClick}>
-                    <img className="navbar-logo" src={Icon} alt="Rivalium Icon"/>
+                    <Image className="navbar-logo" src={Icon} alt="Rivalium Icon"/>
                 </a>
                 {isOpen && (<>
                     <div className="navbar-button-list">
@@ -29,8 +27,8 @@ export default function Navbar() {
                         <NavbarButton text="About"  href="/game"/>
                     </div>
                     <div className="navbar-portal">
-                        <Button small type="main" content="LOGIN" onClick={()=>navigate("/portal")}/>
-                        <Button small content="SIGNUP" onClick={()=>navigate("/portal")}/>
+                        <Button small type="main" content="LOGIN" />
+                        <Button small content="SIGNUP"/>
                     </div>
                 </>
                 )}

@@ -1,7 +1,6 @@
-import { useNavigate } from "react-router-dom";
-import Logo from "./Logo";
-import Button from "../../components/Button";
-import { useRouteTransition } from "../../contexts/TransitionContext";
+import Logo from "../components/Logo";
+import Button from "../components/Button";
+import { useRouteTransition } from "../contexts/TransitionContext";
 
 export default function HomeLayout() {
 
