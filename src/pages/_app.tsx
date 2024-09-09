@@ -6,7 +6,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
     const router = useRouter();
 
-    return <TransitionContextProvider router={router}>
+    return <TransitionContextProvider>
             <Component {...pageProps}/>
     </TransitionContextProvider>;
 }

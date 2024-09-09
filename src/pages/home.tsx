@@ -1,10 +1,10 @@
 import Logo from "../components/Logo";
 import Button from "../components/Button";
-import { useRouteTransition } from "../contexts/TransitionContext";
+import { useTransitionContext } from "../contexts/TransitionContext";
 
 export default function HomeLayout() {
 
-    const goTo = useRouteTransition();
+    const goTo = useTransitionContext().setInTransition;
     
     return (<>
         <Logo/>

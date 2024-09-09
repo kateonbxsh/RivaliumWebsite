@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-import { NextRouter } from 'next/router'
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
+import { NextRouter, useRouter } from 'next/router';
 
 interface TransitionContextType {
     inTransition: boolean;
@@ -12,44 +12,51 @@ interface TransitionContextType {
 
 const TransitionContext = createContext<TransitionContextType | undefined>(undefined);
 
-const TransitionContextProvider: React.FC<{ children: ReactNode, router: NextRouter }> = ({ children, router }) => {
-
+const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const router = useRouter();
     const [inTransition, setInTransition] = useState<boolean>(false);
     const [transitioningTo, setTransitioningTo] = useState<string>("");
     const location = router.asPath;
-    const navigate = (url: string) => router.replace(url);
+
+    useEffect(() => {
+        const handleRouteChange = (url: string) => {
+            if (inTransition) {
+                // Prevent navigation if currently in transition
+                return;
+            }
+            setInTransition(true);
+            setTransitioningTo(url);
+            setTimeout(() => {
+                setInTransition(false);
+            }, 300); // Match this with your CSS transition duration
+        };
+
+        router.events.on('routeChangeStart', handleRouteChange);
+        router.events.on('routeChangeComplete', () => setInTransition(false));
+        router.events.on('routeChangeError', () => setInTransition(false));
+
+        return () => {
+            router.events.off('routeChangeStart', handleRouteChange);
+            router.events.off('routeChangeComplete', () => setInTransition(false));
+            router.events.off('routeChangeError', () => setInTransition(false));
+        };
+    }, [router, inTransition]);
+
+    const navigate = (url: string) => router.push(url);
 
     return (
-        <TransitionContext.Provider value={{ inTransition, setInTransition, transitioningTo, setTransitioningTo, location, navigate}}>
+        <TransitionContext.Provider value={{ inTransition, setInTransition, transitioningTo, setTransitioningTo, location, navigate }}>
             {children}
         </TransitionContext.Provider>
     );
 };
 
-const useRouteTransition = () => {
+const useTransitionContext = () => {
     const context = useContext(TransitionContext);
     if (context === undefined) {
-        throw new Error();
+        throw new Error('useTransitionContext must be used within a TransitionContextProvider');
     }
-    return (target: string, delay: number) => {
-        if (context.inTransition) return;
-        
-        if (context.location == target) return;
-        context.setInTransition(true);
-        context.setTransitioningTo(target);
-        setTimeout(() => {
-            context.setInTransition(false);
-            context.navigate(target);
-        }, delay);
-    };
+    return context;
 };
 
-const useInTransition = () => {
-    const context = useContext(TransitionContext);
-    if (context === undefined) {
-        throw new Error();
-    }
-    return context.inTransition;
-}
-
-export { TransitionContextProvider, useRouteTransition, useInTransition };
+export { TransitionContextProvider, useTransitionContext };
