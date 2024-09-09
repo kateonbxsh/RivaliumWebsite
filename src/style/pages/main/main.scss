@@ -51,6 +51,7 @@
   position: absolute;
   opacity: 0;
   width: 40%;
+  height: auto;
   filter: drop-shadow(0px 0px 3px rgba(black, 0.8));
   background: -webkit-linear-gradient(left, $COLOR_YELLOW, $COLOR_MID, mix($COLOR_SPECIAL, $COLOR_MID, 0.5));
   -webkit-background-clip: text;
@@ -83,6 +84,7 @@
 
 .main-container .logo .letter {
   height: 100%;
+  width: auto;
   animation: letter-animation 3s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;  
 }
 

@@ -1,0 +1,22 @@
+@import "src/style/palette";
+
+.main {
+  position: relative;
+  background-image: url('../../../assets/images/splash/loading-splash.webp');
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh; /* Adjust height as needed */
+  overflow: hidden;
+}
+
+.main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($COLOR_BACK, 0.5);
+  z-index: 1;
+}

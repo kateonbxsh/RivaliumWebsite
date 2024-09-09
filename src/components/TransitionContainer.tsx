@@ -1,15 +1,14 @@
-import { useTransitionContext } from '@/contexts/TransitionContext';
-import styles from '@/styles/Transition.module.scss'; // Adjust path as necessary
+import { FC, ReactNode } from 'react';
+import {useTransitionContext} from "@/contexts/TransitionContext";
 
 type Props = {
-    children?: React.ReactNode
+    children?: ReactNode;
 };
 
-const TransitionContainer: React.FC<Props> = ({ children }) => {
+const TransitionContainer: FC<Props> = ({ children }) => {
     const { inTransition } = useTransitionContext();
-
     return (
-        <div className={`${styles.transitionContainer} ${inTransition ? styles.inTransition : ''}`}>
+        <div className={`transition-container ${inTransition ? 'in-transition' : ''}`}>
             {children}
         </div>
     );

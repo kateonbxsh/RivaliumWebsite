@@ -1,13 +1,11 @@
-import { useRouteTransition } from "../../contexts/TransitionContext";
+import Link from "next/link";
 
 export default function NavbarButton({text, href}: {text: string, href: string}) {
 
-    const goTo = useRouteTransition();
-
-    return (<>
-        <button onClick={() => goTo(href, 200)} className="navbar-button">
+    return (<Link href={href} prefetch>
+        <button className="navbar-button">
             {text}
         </button>
-    </>)
+    </Link>)
 
 }

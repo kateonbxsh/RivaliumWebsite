@@ -1,32 +1,22 @@
-import { TransitionContextProvider } from '@/contexts/TransitionContext';
 import { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
-
-export default function MyApp({ Component, pageProps }: AppProps) {
-
-    const router = useRouter();
-
-    return <TransitionContextProvider>
-            <Component {...pageProps}/>
-    </TransitionContextProvider>;
-}
-
-/*import { AppProps } from 'next/app';
 import { useEffect, useMemo, useState } from 'react';
 import { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import { TransitionContextProvider } from '../contexts/TransitionContext';
-import Loading from '../components/Loading';
 import '@/style/font.scss';
 import '@/style/global.scss';
 import '@/style/pages/main/navbar.scss'
+import '@/style/pages/main/main.scss'
+import '@/style/components/buttons.scss'
 import { useRouter } from 'next/router';
 import { easings, useSpring } from 'react-spring';
 import ParticlesBackground from '@/components/ParticlesBackground';
 import Navbar from '@/components/navbar/Navbar';
 import AnimatedBackground from '@/components/background/AnimatedBackground';
+import TransitionContainer from "@/components/TransitionContainer";
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   const [particlesLoaded, setParticlesLoaded] = useState(false);
     const router = useRouter();
 
@@ -37,10 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       setParticlesLoaded(true);
     });
   }, []);
-
-  if (!particlesLoaded) {
-    return <Loading />;
-  }
 
     const backgroundAnim = useSpring({
         loop: true,
@@ -64,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     const particles = useMemo(() => <ParticlesBackground/>, []);
 
-    return (<TransitionContextProvider router={router}>
+    return (<TransitionContextProvider>
         <Navbar/>
         <AnimatedBackground className='secondary-splash'/>
         <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
@@ -92,10 +78,13 @@ function MyApp({ Component, pageProps }: AppProps) {
         onOpenEasing={easings.easeInOutCirc}
         />
         { particles }
-        <Component {...pageProps} />
+            <div className="main-container">
+                <TransitionContainer>
+                    <Component {...pageProps} />
+                </TransitionContainer>
+            </div>
     </TransitionContextProvider>
   );
 }
 
 export default MyApp;
-*/

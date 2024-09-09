@@ -4,7 +4,7 @@ import { useTransitionContext } from "../contexts/TransitionContext";
 
 export default function HomeLayout() {
 
-    const goTo = useTransitionContext().setInTransition;
+    const { navigate } = useTransitionContext();
     
     return (<>
         <Logo/>
@@ -12,12 +12,12 @@ export default function HomeLayout() {
             <Button 
                 type="main"
                 content="PLAY NOW"
-                onClick={() => goTo("/download", 200)}
+                onClick={() => navigate("/download")}
             />
             <Button 
                 type="secondary"
                 content="ABOUT THE GAME"
-                onClick={() => goTo("/game", 200)}
+                onClick={() => navigate("/game")}
             />
         </div>
     </>)

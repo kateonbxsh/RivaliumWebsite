@@ -21,7 +21,6 @@ const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children
     useEffect(() => {
         const handleRouteChange = (url: string) => {
             if (inTransition) {
-                // Prevent navigation if currently in transition
                 return;
             }
             setInTransition(true);
@@ -42,7 +41,11 @@ const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children
         };
     }, [router, inTransition]);
 
-    const navigate = (url: string) => router.push(url);
+    const navigate = (url: string) => {
+        if (inTransition) return;
+        if (url == location) return;
+        router.push(url);
+    }
 
     return (
         <TransitionContext.Provider value={{ inTransition, setInTransition, transitioningTo, setTransitioningTo, location, navigate }}>

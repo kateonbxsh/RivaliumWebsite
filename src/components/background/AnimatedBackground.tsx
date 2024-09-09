@@ -1,4 +1,5 @@
 import { animated, easings, useSpring } from "react-spring";
+import {useTransitionContext} from "@/contexts/TransitionContext";
 
 export interface AnimatedBackgroundProps {
     namespace?: string | string[];
@@ -18,11 +19,11 @@ export default function AnimatedBackground({
     onOpenEasing = easings.linear
 }: AnimatedBackgroundProps) {
 
+    const { location } = useTransitionContext();
 
-    // Check if the current pathname matches the namespace
     const inNamespace = (namespace instanceof Array) 
-        ? namespace.includes(location.pathname) 
-        : (namespace === undefined || namespace === location.pathname);
+        ? namespace.includes(location)
+        : (namespace === undefined || namespace === location);
 
     const style = { opacity: inNamespace ? 1 : 0 };
     for(const key in onOpen[0]) {
