@@ -8,6 +8,10 @@
   width: 100vw;
   height: 100vh; /* Adjust height as needed */
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .main::before {
@@ -17,6 +21,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba($COLOR_BACK, 0.5);
+  background: rgba($COLOR_BACK, 0.9);
   z-index: 1;
+}
+
+.error {
+  z-index: 2;
+  font-size: 10vh;
+  background: -webkit-linear-gradient(left, $COLOR_YELLOW, $COLOR_MID, mix($COLOR_SPECIAL, $COLOR_MID, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.errorDesc {
+  z-index: 2;
+  font-size: 3vh;
+  background: -webkit-linear-gradient(left, $COLOR_YELLOW, $COLOR_MID, mix($COLOR_SPECIAL, $COLOR_MID, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

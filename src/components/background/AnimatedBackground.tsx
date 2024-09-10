@@ -4,7 +4,7 @@ import {useTransitionContext} from "@/contexts/TransitionContext";
 export interface AnimatedBackgroundProps {
     namespace?: string | string[];
     animation?: object, // Change type to `object` if not using SpringValues
-    onOpen?: [object, object],
+    onOpen?: [Record<any, any>, Record<any, any>],
     onOpenEasing?: (t: number) => number,
     duration?: number,
     className: string
@@ -25,7 +25,7 @@ export default function AnimatedBackground({
         ? namespace.includes(location)
         : (namespace === undefined || namespace === location);
 
-    const style = { opacity: inNamespace ? 1 : 0 };
+    const style: Record<any, any> = { opacity: inNamespace ? 1 : 0 };
     for(const key in onOpen[0]) {
         style[key] = inNamespace ? (onOpen[1][key]) : (onOpen[0][key]);
     }

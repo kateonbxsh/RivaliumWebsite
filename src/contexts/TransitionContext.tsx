@@ -16,7 +16,7 @@ const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children
     const router = useRouter();
     const [inTransition, setInTransition] = useState<boolean>(false);
     const [transitioningTo, setTransitioningTo] = useState<string>("");
-    const location = router.asPath;
+    const location = router.pathname;
 
     useEffect(() => {
         const handleRouteChange = (url: string) => {

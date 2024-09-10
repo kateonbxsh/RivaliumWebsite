@@ -1,9 +1,13 @@
-import '@/style/pages/error/error.module.scss'
+import styles from '@/style/pages/error/error.module.scss'
+import { NextPage } from 'next/types'
 
-export default function ErrorPage() {
+const ErrorPage: NextPage = () => {
 
-    return <div className="main">
-        TEST
+    return <div className={styles.main}>
+        <span className={styles.error}>404 NOT FOUND</span>
+        <span className={styles.errorDesc}>We’re sorry, but the page you’re looking for can’t be found</span>
     </div>
 
 }
+
+export default ErrorPage;

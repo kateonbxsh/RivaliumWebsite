@@ -14,77 +14,16 @@ import ParticlesBackground from '@/components/ParticlesBackground';
 import Navbar from '@/components/navbar/Navbar';
 import AnimatedBackground from '@/components/background/AnimatedBackground';
 import TransitionContainer from "@/components/TransitionContainer";
+import HomeLayout from '@/components/HomeLayout';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
 
-  const [particlesLoaded, setParticlesLoaded] = useState(false);
-    const router = useRouter();
+    const Layout = HomeLayout;
 
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setParticlesLoaded(true);
-    });
-  }, []);
+    return <Layout>
+        <Component {...pageProps}/>
+    </Layout>
 
-    const backgroundAnim = useSpring({
-        loop: true,
-        to: [
-        { transform: 'translateX(-1%) scale(1.1)' },
-        { transform: 'translateX(1%) scale(1.1)' },
-        ],
-        from: { transform: 'translateX(1%) scale(1.1)' },
-        config: { duration: 8000, easing: easings.easeInOutCubic},
-    });
-
-    const backgroundAnim2 = useSpring({
-        loop: true,
-        to: [
-        { transform: 'translateX(-20px) scale(1.1)' },
-        { transform: 'translateX(20px) scale(1.1)' },
-        ],
-        from: { transform: 'translateX(20px) scale(1.1)' },
-        config: { duration: 8000, easing: easings.easeInOutCubic},
-    });
-
-    const particles = useMemo(() => <ParticlesBackground/>, []);
-
-    return (<TransitionContextProvider>
-        <Navbar/>
-        <AnimatedBackground className='secondary-splash'/>
-        <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
-        onOpen={[{
-            transform: 'scale(3)'
-        },{
-            transform: 'scale(1)'
-        }]}
-        onOpenEasing={easings.easeInOutCirc}
-        />
-        <AnimatedBackground animation={backgroundAnim} className='main-splash' namespace={["/", "/home"]}
-        onOpen={[{
-            transform: 'scale(3)'
-        },{
-            transform: 'scale(1)'
-        }]}
-        onOpenEasing={easings.easeInOutCirc}
-        />
-        <AnimatedBackground animation={backgroundAnim2} className='battle-splash' namespace="/download"
-        onOpen={[{
-            transform: 'translateX(0%) scale(1)'
-        },{
-            transform: 'translateX(-20%) scale(1.4)'
-        }]}
-        onOpenEasing={easings.easeInOutCirc}
-        />
-        { particles }
-            <div className="main-container">
-                <TransitionContainer>
-                    <Component {...pageProps} />
-                </TransitionContainer>
-            </div>
-    </TransitionContextProvider>
-  );
 }
 
-export default MyApp;
+export default App;

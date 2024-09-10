@@ -8,7 +8,7 @@
     $BUTTON_COLOR_DARK 50%,
     $BUTTON_COLOR_DARK 100%
   );
-  &:hover {
+  &:hover:enabled {
     filter: drop-shadow(0 0 3px mix(white, $BUTTON_COLOR, 40%)) brightness(1.2);
   }
 }
@@ -29,6 +29,16 @@
   padding: 6px 24px;
   font-size: 1.3em;
   margin: 4px;
+}
+
+.button.b {
+  padding: 28px 52px;
+  font-size: 2em;
+  margin: 8px;
+}
+
+.button[disabled] {
+  @include button-style(rgb(68, 68, 68), rgb(48, 48, 48));
 }
 
 .button.main {
