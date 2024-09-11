@@ -35,4 +35,5 @@ jobs:
             
             pnpm install
             
-            pnpm run build
+            npm run build
+            npm run start

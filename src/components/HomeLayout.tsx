@@ -1,8 +1,8 @@
-import { TransitionContextProvider } from "@/contexts/TransitionContext";
-import { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim";
-import { useState, useEffect, useMemo, Component } from "react";
-import { useSpring, easings } from "react-spring";
+import {TransitionContextProvider} from "@/contexts/TransitionContext";
+import {initParticlesEngine} from "@tsparticles/react";
+import {loadSlim} from "@tsparticles/slim";
+import {useEffect, useMemo, useState} from "react";
+import {easings, useSpring} from "react-spring";
 import AnimatedBackground from "./background/AnimatedBackground";
 import Navbar from "./navbar/Navbar";
 import ParticlesBackground from "./ParticlesBackground";

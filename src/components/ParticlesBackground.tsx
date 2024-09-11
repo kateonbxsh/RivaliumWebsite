@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { Particles } from '@tsparticles/react';
-import { ISourceOptions } from '@tsparticles/engine';
+import React, {useMemo} from 'react';
+import {Particles} from '@tsparticles/react';
+import {ISourceOptions} from '@tsparticles/engine';
 
 const ParticlesBackground: React.FC = () => {
 

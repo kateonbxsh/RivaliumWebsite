@@ -1,4 +1,4 @@
-import { animated, easings, useSpring } from "react-spring";
+import {animated, easings, useSpring} from "react-spring";
 import {useTransitionContext} from "@/contexts/TransitionContext";
 
 export interface AnimatedBackgroundProps {

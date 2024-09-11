@@ -1,5 +1,5 @@
 import styles from '@/style/pages/error/error.module.scss'
-import { NextPage } from 'next/types'
+import {NextPage} from 'next/types'
 
 const ErrorPage: NextPage = () => {
 

@@ -1,5 +1,5 @@
-import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { NextRouter, useRouter } from 'next/router';
+import React, {createContext, ReactNode, useContext, useEffect, useState} from 'react';
+import {useRouter} from 'next/router';
 
 interface TransitionContextType {
     inTransition: boolean;

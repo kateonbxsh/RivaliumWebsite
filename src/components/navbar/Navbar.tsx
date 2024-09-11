@@ -1,5 +1,5 @@
 import NavbarButton from "@/components/navbar/NavbarButton";
-import { useState } from 'react';
+import {useState} from 'react';
 import Button from '@/components/Button';
 import Icon from "@/assets/images/logo/icon/icon.webp";
 import Image from 'next/image';
