@@ -8,7 +8,7 @@ export default function HomeLayout() {
     
     return (<>
         <Logo/>
-        <div>
+        <div className="flex">
             <Button 
                 type="main"
                 content="PLAY NOW"

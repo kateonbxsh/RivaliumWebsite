@@ -25,9 +25,6 @@ const TransitionContextProvider: React.FC<{ children: ReactNode }> = ({ children
             }
             setInTransition(true);
             setTransitioningTo(url);
-            setTimeout(() => {
-                setInTransition(false);
-            }, 300); // Match this with your CSS transition duration
         };
 
         router.events.on('routeChangeStart', handleRouteChange);
