@@ -1,14 +1,16 @@
 import Button from "@/components/Button"
+import { apiUrl } from "@/components/constant";
 import styles from "@/style/pages/download/download.module.scss"
+import Link from "next/link";
 import { DiLinux, DiApple, DiWindows } from "react-icons/di";
 
 export default function DownloadPage() {
 
     return <>
+        <span className={`${styles.containerTitle} title`}>DOWNLOAD - PRE-ALPHA</span>
         <div className={styles.container}>
-            <span className={styles.containerTitle}>DOWNLOAD</span>
-            <div className="h-1/2 w-full my-5 flex flex-row items-center justify-evenly">
-                <div className="m-2 w-1/2 h-full flex flex-col items-center">
+            <div className="h-1/2 w-full my-5 flex flex-row items-center justify-evenly secondary-text">
+                <div className="m-2 w-50 h-full flex flex-col items-center">
                     <span className="text-sky-200 text-2xl">
                         Miminal specs required
                     </span>
@@ -38,11 +40,13 @@ export default function DownloadPage() {
                 </div>
             </div>
             <hr className="border-sky-200/[0.5] my-2 w-full"/>
-            <span className="text-sky-200 text-2xl">
+            <span className="text-sky-200 text-2xl secondary-text">
                 Choose your preferred platform
             </span>
             <div className="flex flex-row w-full justify-center">
-                <Button big type="main" content="WINDOWS" Icon={DiWindows}/>
+                <Link href={apiUrl + "/cdn/download/windows"}>
+                    <Button big type="main" content="WINDOWS" Icon={DiWindows}/>
+                </Link>
                 <Button big disabled content="MAC OS" Icon={DiApple}/>
                 <Button big disabled content="LINUX" Icon={DiLinux}/>
             </div>

@@ -4,6 +4,7 @@ import Button from '@/components/Button';
 import Icon from "@/assets/images/logo/icon/icon.webp";
 import Image from 'next/image';
 
+
 export default function Navbar() {
 
     const [isOpen, setIsOpen] = useState(true);
@@ -22,14 +23,15 @@ export default function Navbar() {
                     <div className="navbar-button-list">
                         <NavbarButton text="Home" href="/"/>
                         <NavbarButton text="Play" href="/download"/>
-                        <NavbarButton text="Rivals" href="/rivals"/>
-                        <NavbarButton text="Gameplay" href="/gameplay"/>
-                        <NavbarButton text="About"  href="/game"/>
+                        <NavbarButton text="Rivals" href="/rivals" disabled/>
+                        <NavbarButton text="Gameplay" href="/gameplay" disabled/>
+                        <NavbarButton text="Patch Notes" href="/patch-notes/"/>
+                        <NavbarButton text="Discord" href="https://discord.rivalium.online" blank/>
                     </div>
-                    <div className="navbar-portal">
+                    {/*<div className="navbar-portal">
                         <Button small type="main" content="LOGIN" />
                         <Button small content="SIGNUP"/>
-                    </div>
+                    </div>*/}
                 </>
                 )}
                 

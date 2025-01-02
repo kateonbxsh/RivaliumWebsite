@@ -136,12 +136,19 @@
 
 .main-splash {
   background: url("../../../assets/images/splash/main-splash.webp");
+  
 }
 
 .secondary-splash {
   background: url("../../../assets/images/splash/secondary-splash.webp");
+  filter: blur(8px);
+}
+
+.ui-splash {
+  background: url("../../../assets/images/splash/ui-splash.webp");
 }
 
 .battle-splash {
   background: url("../../../assets/images/splash/battle-splash.webp");
+  filter: blur(8px);
 }

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "palette.scss";
+
 html, body, #root {
     background-color: white;
     overflow: hidden;
@@ -30,4 +32,37 @@ button, input[type="submit"], input[type="reset"] {
 * {
     box-sizing: border-box;
     font-family: mainFont;
+}
+
+.title {
+    font-size: 10vh;
+    background: -webkit-linear-gradient(left, $COLOR_YELLOW, $COLOR_MID, mix($COLOR_SPECIAL, $COLOR_MID, 0.5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+}
+
+.scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #4A90E2 transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #4A90E2;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-button {
+    background: transparent;
 }

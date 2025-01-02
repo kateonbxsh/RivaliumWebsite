@@ -3,8 +3,11 @@
   src: url(motioncontrol.otf);
 }
 
-.text-normal {
+@font-face {
+  font-family: secondaryFont;
+  src: url(BAHNSCHRIFT.TTF)
+}
 
-  
-
+.secondary-text, .secondary-text * {
+  font-family: secondaryFont;
 }

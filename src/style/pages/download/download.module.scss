@@ -19,16 +19,7 @@
 
 .containerTitle {
 
-    font-size: 10vh;
-    filter: drop-shadow(0 0 3px rgb(black, 0.5));
-    background: -webkit-linear-gradient(left, $COLOR_YELLOW, $COLOR_MID, mix($COLOR_SPECIAL, $COLOR_MID, 0.5));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    position: absolute;
-    top: 0;
-    transform: translateY(-40%);
+
 
 
 }

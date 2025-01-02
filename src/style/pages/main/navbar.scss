@@ -74,7 +74,7 @@
 }
 
 .navbar-button-list {
-    width: 40%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -83,7 +83,6 @@
 
 .navbar-button {
 
-    float: right;
     font-family: mainFont, sans-serif;
     font-size: 1.4em;
     text-decoration: none;
@@ -100,11 +99,20 @@
 
 }
 
-.navbar-button:hover {
+.navbar-button:hover:not(.disabled) {
 
-    cursor: pointer;
     filter: drop-shadow(0 0 15px rgb($COLOR_LIGHT, 1)) brightness(1.2);
 
+}
+
+.navbar-button.selected {
+
+    filter: drop-shadow(0 0 8px rgb($COLOR_LIGHT, 1)) brightness(2.4);
+}
+
+.navbar-button.disabled {
+    color: $COLOR_DARK;
+    opacity: 0.5;
 }
 
 @media screen and (max-aspect-ratio: 1) {

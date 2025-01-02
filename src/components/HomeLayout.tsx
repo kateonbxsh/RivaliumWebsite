@@ -5,7 +5,6 @@ import {useEffect, useMemo, useState} from "react";
 import {easings, useSpring} from "react-spring";
 import AnimatedBackground from "./background/AnimatedBackground";
 import Navbar from "./navbar/Navbar";
-import ParticlesBackground from "./ParticlesBackground";
 import TransitionContainer from "./TransitionContainer";
 
 export default function HomeLayout({ children }: {children: React.ReactNode}) {
@@ -40,11 +39,9 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
         config: { duration: 8000, easing: easings.easeInOutCubic},
     });
 
-    const particles = useMemo(() => <ParticlesBackground/>, []);
-
     return (<TransitionContextProvider>
         <Navbar/>
-        <AnimatedBackground className='secondary-splash'/>
+        <AnimatedBackground className='ui-splash'/>
         <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
         onOpen={[{
             transform: 'scale(3)'
@@ -69,7 +66,6 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
         }]}
         onOpenEasing={easings.easeInOutCirc}
         />
-        { particles }
             <div className="main-container">
                 <TransitionContainer>
                     {children}

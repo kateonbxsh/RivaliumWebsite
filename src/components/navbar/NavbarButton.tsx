@@ -1,9 +1,21 @@
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
-export default function NavbarButton({text, href}: {text: string, href: string}) {
+export default function NavbarButton({text, href, disabled, blank}: {text: string, href: string, disabled?: true, blank?: true}) {
 
-    return (<Link href={href}>
-        <button className="navbar-button">
+    const router = useRouter();
+
+    return (<Link 
+        href={href}
+        target={blank ? "_blank" : ""}
+        onClick={(e) => {
+            if (router.pathname === href || disabled) {
+              e.preventDefault();
+            }
+          }}>
+        <button className={"navbar-button " + ((router.pathname === href) ? "selected " : "")
+            + ((disabled) ? "disabled" : "")
+        }>
             {text}
         </button>
     </Link>)
