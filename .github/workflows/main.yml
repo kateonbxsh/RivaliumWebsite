@@ -25,6 +25,9 @@ jobs:
             export PATH="$PM2_HOME/bin:$PATH"
             
             nvm use lts/iron
+
+            pm2 stop Website || true
+            pm2 delete Website || true
             
             cd ~/website/
             
@@ -39,11 +42,12 @@ jobs:
             if ! command -v pm2 &> /dev/null
             then
               echo "PM2 not found, installing..."
-              npm install -g pm2
+              pnpm install -g pm2
             else
               echo "PM2 is already installed"
             fi
             
+            npm run build
             pm2 start --name Website npm -- run start
 
             
