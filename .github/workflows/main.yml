@@ -35,4 +35,4 @@ jobs:
             
             pnpm install
             
-            npm run start
+            pm2 start --name Website npm -- run start
