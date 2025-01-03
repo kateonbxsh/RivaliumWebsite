@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { apiUrl } from '@/components/constant';
 
 type VersionDetails = any;
 
@@ -13,7 +14,7 @@ const VersionDetailsPage = () => {
         if (version) {
             const fetchVersionDetails = async () => {
                 try {
-                    const response = await axios.get(`http://localhost:1840/api/v1/version/${version}`);
+                    const response = await axios.get(`${apiUrl}/version/${version}`);
                     setVersionDetails(response.data);
                 } catch (error) {
                     console.error('Error fetching version details:', error);

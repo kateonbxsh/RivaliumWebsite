@@ -13,7 +13,7 @@ const PatchNotes = () => {
     useEffect(() => {
         const fetchVersions = async () => {
             try {
-                const response = await axios.get(`${apiUrl}/api/v1/version/all`);
+                const response = await axios.get(`${apiUrl}/version/all`);
                 setVersions(response.data.versions.filter((version: any) => version.published));
             } catch (error) {
                 console.error('Error fetching versions:', error);
