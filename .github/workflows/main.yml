@@ -3,7 +3,7 @@ name: Deployment
 on:
   push:
     branches:
-      - master
+      - production
 
 jobs:
   deploy:
@@ -33,7 +33,8 @@ jobs:
             
             git stash push --include-untracked --quiet 
             git stash drop
-            git pull origin master
+            git checkout production
+            git pull origin production
             git status
             
             pnpm install
