@@ -17,7 +17,7 @@ const VersionDetailsPage = () => {
                     const response = await axios.get(`${apiUrl}/version/${version}`);
                     setVersionDetails(response.data);
                 } catch (error) {
-                    console.error('Error fetching version details:', error);
+                    router.push("/404")
                 }
             };
 
@@ -26,7 +26,7 @@ const VersionDetailsPage = () => {
     }, [version]);
 
     if (!versionDetails) {
-        return <div>Loading...</div>;
+        return <div className='title'>Loading...</div>;
     }
 
     return (
