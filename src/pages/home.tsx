@@ -6,7 +6,7 @@ export default function HomeLayout() {
 
     const { navigate } = useTransitionContext();
     
-    return (<>
+    return (<main className="w-full h-full flex flex-col justify-center items-center" >
         <Logo/>
         <div className="flex">
             <Button 
@@ -20,6 +20,6 @@ export default function HomeLayout() {
                 onClick={() => navigate("/game")}
             />
         </div>
-    </>)
+    </main>)
 
 }

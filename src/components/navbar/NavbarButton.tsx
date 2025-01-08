@@ -13,7 +13,7 @@ export default function NavbarButton({text, href, disabled, blank}: {text: strin
               e.preventDefault();
             }
           }}>
-        <button className={"navbar-button " + ((router.pathname === href) ? "selected " : "")
+        <button className={"navbar-button mx-3 md:mx-5 my-1 md:my-1.5 " + ((router.pathname === href) ? "selected " : "")
             + ((disabled) ? "disabled" : "")
         }>
             {text}

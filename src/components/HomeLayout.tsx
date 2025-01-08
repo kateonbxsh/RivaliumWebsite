@@ -6,6 +6,8 @@ import {easings, useSpring} from "react-spring";
 import AnimatedBackground from "./background/AnimatedBackground";
 import Navbar from "./navbar/Navbar";
 import TransitionContainer from "./TransitionContainer";
+import Footer from "./footer/Footer";
+import HeadLayout from "./Head";
 
 export default function HomeLayout({ children }: {children: React.ReactNode}) {
 
@@ -40,8 +42,13 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
     });
 
     return (<TransitionContextProvider>
+        <HeadLayout/>
         <Navbar/>
-        <AnimatedBackground className='ui-splash'/>
+        <AnimatedBackground className='ui-splash blur-md' onOpen={[{
+            transform: 'scale(3)'
+        },{
+            transform: 'scale(1.5)'
+        }]}/>
         <AnimatedBackground className='secondary-splash' namespace={["/rivals", "/gameplay", "/game"]}
         onOpen={[{
             transform: 'scale(3)'
@@ -69,8 +76,11 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
             <div className="main-container">
                 <TransitionContainer>
                     {children}
+                    <Footer/>
                 </TransitionContainer>
+                
             </div>
+            
     </TransitionContextProvider>
   );
 
