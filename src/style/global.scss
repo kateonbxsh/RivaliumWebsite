@@ -12,9 +12,7 @@ html, body, #root {
     width: 100vw;
     min-width: 100vw;
     max-width: 100vw;
-    height: 100vh;
     min-height: 100vh;
-    max-height: 100vh;
     display: flex;
     position: relative;
 }
@@ -357,4 +355,56 @@ button, input[type="submit"], input[type="reset"] {
 
 .button.secondary {
     @include button-style(#631f70, #541b60)
+}
+
+@media print {
+  /* Hide elements you don't want to print */
+  .no-print {
+    display: none;
+  }
+
+  * {
+    color: black !important;
+  }
+
+  .transition-container {
+    height: auto !important;
+    position: relative;
+  }
+
+  /* Page break handling */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Ensure content is readable */
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    height:max-content;
+  }
+
+  h3 {
+    font-size: 16pt;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 14pt;
+    margin-bottom: 1rem;
+  }
+
+  /* Avoid content overflow */
+  .page {
+    page-break-inside: avoid;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* Ensure all content fits on the page */
+  .content {
+    display: block;
+    page-break-inside: avoid;
+  }
 }

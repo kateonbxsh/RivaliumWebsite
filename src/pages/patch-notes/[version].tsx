@@ -97,7 +97,7 @@ const VersionDetailsPage = () => {
             </div>
             <div className="secondary-text text-sm md:text-xl flex flex-row items-center">
               <p className="ml-6 pr-5">{change.description}</p>
-              {change.type === 'adjust' && (
+              {change.type === 'adjust' && change.newValue && change.oldValue && (
                 <>
                   <p className="text-red-300 pr-2">{change.oldValue}</p>
                   <FaArrowRight className="text-lightblue pr-2" />
@@ -152,7 +152,7 @@ const VersionDetailsPage = () => {
           
           {versionDetails.published && (<div className="text-[0.5rem] mb-3 md:mb-6 md:text-xs secondary-text opacity-60 w-full flex flex-row justify-center">
               <p className='text-lightblue'>
-                <span className="font-bold text-lightblue">Published At </span>{' '}
+                <span className="font-bold text-lightblue">Published at </span>{' '}
                 {new Date(versionDetails.publishedAt).toLocaleDateString()}
                 <span className="font-bold text-lightblue"> by </span>{' '}
                 {versionDetails.publishedBy.username}
