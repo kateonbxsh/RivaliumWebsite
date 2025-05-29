@@ -33,8 +33,9 @@ jobs:
             
             git stash push --include-untracked --quiet 
             git stash drop
-            git checkout production
-            git pull origin production
+            git fetch
+            git checkout main
+            git pull origin main
             git status
             
             pnpm install
