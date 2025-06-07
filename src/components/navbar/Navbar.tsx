@@ -19,7 +19,7 @@ export default function Navbar() {
                         <NavbarButton text="Rivals" href="/rivals" disabled/>
                         <NavbarButton text="Patch Notes" href="/patch-notes/"/>
                         <NavbarButton text="Discover" href="/discover" disabled/>
-                        <NavbarButton text="Support" href="/support" disabled/>
+                        <NavbarButton text="Support" href="/support" />
                         <NavbarButton text="Discord" href="https://discord.rivalium.online" blank/>
                     </div>
                 </div>
