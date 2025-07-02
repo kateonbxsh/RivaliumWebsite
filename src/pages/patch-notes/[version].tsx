@@ -84,14 +84,14 @@ const VersionDetailsPage = () => {
       <ul className="list-none">
         {changes.map((change, index) => (
           <li key={index} className="mb-3 text-lightblue flex flex-col items-start">
-            <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-2 mb-2"> 
               {change.type === 'add' && <FaPlus className="text-green-300" />}
               {change.type === 'remove' && <FaMinus className="text-red-400" />}
               {change.type === 'fix' && <FaTools className="text-lightblue" />}
               {change.type === 'change' && <FaEdit className="text-white" />}
               {change.type === 'adjust' && <FaExchangeAlt className="text-lightblue" />}
               {change.type === 'category' && <FaChevronRight className="text-white" />}
-              <span className="text-lg md:text-3xl font-bold">
+              <span className="text-lg md:text-3xl">
                 {change.title || 'Unnamed Change'}
               </span>
             </div>
@@ -144,7 +144,7 @@ const VersionDetailsPage = () => {
       <div className="bg-backblue bg-opacity-80 p-4 md:p-10 md:px-[20%] shadow-xl">
         <div className="mb-10">
             <div className='w-full flex flex-row justify-center'>
-                <h2 className="title text-4xl md:text-[4rem] font-bold text-lightblue mb-1 md:mb-4">
+                <h2 className="title text-4xl md:text-[4rem] text-lightblue mb-1 md:mb-4">
                 {versionDetails.changelog?.title || ''}
             </h2>
             </div>
@@ -152,9 +152,9 @@ const VersionDetailsPage = () => {
           
           {versionDetails.published && (<div className="text-[0.5rem] mb-3 md:mb-6 md:text-xs secondary-text opacity-60 w-full flex flex-row justify-center">
               <p className='text-lightblue'>
-                <span className="font-bold text-lightblue">Published at </span>{' '}
+                <span className="text-lightblue">Published at </span>{' '}
                 {new Date(versionDetails.publishedAt).toLocaleDateString()}
-                <span className="font-bold text-lightblue"> by </span>{' '}
+                <span className="text-lightblue"> by </span>{' '}
                 {versionDetails.publishedBy.username}
               </p>
             </div>)}

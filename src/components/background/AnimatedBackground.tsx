@@ -47,11 +47,11 @@ export default function AnimatedBackground({
                 overflow: 'hidden'
             }}
         >
-            <animated.div className={className}
+            <animated.div className={className + " " + (inNamespace ? "" : "hidden")}
                 style={{
                     ...animation,
                     position: 'absolute',
-                    zIndex: 0,
+                    zIndex: 1,
                     width: '100vw',
                     height: '100vh',
                     backgroundSize: 'cover',

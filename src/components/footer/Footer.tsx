@@ -22,13 +22,10 @@ export default function Footer() {
           <div>
             <h3 className="text-lg md:text-2xl mb-2 md:mb-4">About Rivalium</h3>
             <p className="text-sm secondary-text">
-              Rivalium is a competitive, high-octane multiplayer platformer. Master your Rivals, conquer
+              Rivalium, developed by Kaura Interactive, is a competitive, high-octane multiplayer platformer. Master your Rivals, conquer
               unique maps, and climb the ranks to prove your skills in an epic battle of strategy and precision.
             </p>
           </div>
-
-          
-          
 
           {/* Social Media */}
           <div>
@@ -69,8 +66,8 @@ export default function Footer() {
           {/* Game Info */}
           <div>
             <p className="secondary-text text-xs">
-              © {new Date().getFullYear()} Rivalium. All Rights Reserved. Rivalium and its logo are trademarks of
-              kateonbxsh. All other trademarks belong to their respective owners.
+              © {new Date().getFullYear()} Kaura Interactive. All Rights Reserved. <br/>Rivalium and its logo are trademarks of
+              Kaura Interactive. All other trademarks belong to their respective owners.
             </p>
           </div>
 

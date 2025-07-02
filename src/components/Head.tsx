@@ -4,7 +4,6 @@ export default function HeadLayout() {
 
     return <Head>
     {/* Basic SEO Metadata */}
-    <title>Rivalium - The Realm of Rivals</title>
     <meta
       name="description"
       content="Rivalium is a high-octane 2.5D competitive multiplayer platformer featuring unique characters, intense battles, and thrilling gameplay."

@@ -9,7 +9,13 @@ import TransitionContainer from "./TransitionContainer";
 import Footer from "./footer/Footer";
 import HeadLayout from "./Head";
 
-export default function HomeLayout({ children }: {children: React.ReactNode}) {
+interface LayoutProps {
+    children: React.ReactNode;
+    navbar: boolean;
+    footer: boolean;
+}
+
+export default function Layout({ children, navbar, footer}: LayoutProps) {
 
     const [_, setParticlesLoaded] = useState(false);
 
@@ -43,7 +49,7 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
 
     return (<TransitionContextProvider>
         <HeadLayout/>
-        <Navbar/>
+        {navbar && <Navbar/>}
         <AnimatedBackground className='ui-splash blur-md' onOpen={[{
             transform: 'scale(3)'
         },{
@@ -73,10 +79,11 @@ export default function HomeLayout({ children }: {children: React.ReactNode}) {
         }]}
         onOpenEasing={easings.easeInOutCirc}
         />
+        <AnimatedBackground className="portal-back" namespace="/portal"/>
             <div className="main-container">
                 <TransitionContainer>
                     {children}
-                    <Footer/>
+                    {footer && <Footer/>}
                 </TransitionContainer>
                 
             </div>
