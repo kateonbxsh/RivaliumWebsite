@@ -15,7 +15,7 @@ export default function Navbar() {
                     <div className="w-full md:w-2/3 flex flex-row justify-evenly text-sm md:text-2xl my-2 flex-wrap">
                         <NavbarButton text="Home" href="/"/>
                         <NavbarButton text="Play" href="/download"/>
-                        <NavbarButton text="Gameplay" href="/gameplay" disabled/>
+                        <NavbarButton text="Gameplay" href="/gameplay" />
                         <NavbarButton text="Rivals" href="/rivals" disabled/>
                         <NavbarButton text="Patch Notes" href="/patch-notes/"/>
                         <NavbarButton text="Discover" href="/discover" disabled/>

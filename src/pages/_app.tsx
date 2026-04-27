@@ -1,14 +1,16 @@
+"use client";
+
 import {AppProps} from 'next/app';
 import '@/style/font.scss';
 import '@/style/global.scss';
 import Layout from '@/components/Layout';
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 const NoLayout = ({children}: any) => <>{children}</>;
 
 function App({ Component, pageProps }: AppProps) {
 
-    const path = usePathname();
+    const {pathname: path} = useRouter();
     let navbar = true, footer = true;
     if (path.startsWith("/portal")) {
         navbar = false;

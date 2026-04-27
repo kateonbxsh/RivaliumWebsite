@@ -5,11 +5,10 @@ import ProgressBar, { ProgressState } from "@/components/ProgressBar";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { useState } from "react";
 import { FaCheckCircle, FaCopy, FaEnvelope, FaExternalLinkAlt, FaGoogle, FaSignInAlt } from "react-icons/fa";
 import { FaArrowLeftLong, FaArrowRightLong, FaCircleXmark } from "react-icons/fa6";
-import { update } from "react-spring";
 
 interface FormProps {
     username: string;
@@ -24,10 +23,10 @@ interface FormProps {
 type Errors = Partial<Record<keyof FormProps, any>>;
 
 export default function Portal() {
-    const method = useParams().method;
+    const router = useRouter();
+    const { method } = router.query;
     const isLogin = method == "login";
     const isRegister = method == "register";
-    const router = useRouter();
     const goToLogin = () => router.replace("/portal/login");
     const goToRegister = () => router.replace("/portal/register");
 
